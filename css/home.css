@@ -1,55 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgb(131, 195, 220) 0%,
+    rgba(87, 199, 133, 1) 43%,
+    rgba(237, 221, 83, 1) 100%
+  );
+}
+
+header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  position: relative;
+}
+
+nav a.select::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: brown;
+}
+
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
-    background-color: #ffffff;
-    border: 2px solid brown; 
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    max-width: 700px;
-    margin: 50px auto; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  background: #eaf7ef;
+  border-radius: 18px;
+  padding: 45px;
+  max-width: 720px;
+  margin: 80px auto;
+  text-align: center;
+  z-index: 0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 4px;
+  border-radius: 18px;
+  background: linear-gradient(
+    270deg,
+    #ff0000,
+    #ff9800,
+    #ffeb3b,
+    #4caf50,
+    #00bcd4,
+    #3f51b5,
+    #9c27b0,
+    #ff0000
+  );
+  background-size: 400% 400%;
+  animation: borderRotate 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
 }
 
 .card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
 .card h1 {
-    font-size: 2.5rem;
-    color: #333;
-    animation: slideInLeft 1s ease forwards;
-    margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  animation: slideInLeft 1s ease forwards;
 }
 
 .card p {
-    font-size: 1.5rem; 
-    color: #555;
-    animation: slideInLeft 1.5s ease forwards;
+  font-size: 1.6rem;
+  color: #555;
+  animation: fadeInUp 1.4s ease forwards;
 }
-
-
 
 .animated-text {
-    font-size: 2rem;
-    color: #333;
-    animation: fadeInUp 1s ease forwards;
-    margin-bottom: 15px;
+  animation: fadeInUp 1s ease forwards;
 }
 
-.animated-card p {
-    font-size: 1.2rem;
-    color: #666;
-    animation: fadeInUp 1.5s ease forwards;
+.card:hover .animated-text {
+  animation: pulse 1s infinite;
 }
 
 @keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

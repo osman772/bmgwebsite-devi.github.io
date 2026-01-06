@@ -1,3 +1,87 @@
-.project-img{
- width: 200px;
+#projects {
+  padding: 40px 20px;
+}
+
+#projects h1 {
+  margin-bottom: 40px;
+  font-size: 36px;
+  color: #222;
+  animation: fadeDown 1s ease;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeUp 1s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.project-img {
+  width: 200px;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .project-img {
+  transform: scale(1.08);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.9s;
 }
